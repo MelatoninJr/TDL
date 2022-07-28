@@ -9,8 +9,9 @@ function envyTest () {
         local.push(envy[i])
     }
 }
-envyTest()
-console.log(local)
+if(localStorage.length > 0) {
+    envyTest()
+}
 
 
 
@@ -401,9 +402,50 @@ dropdown.addEventListener("click", function(e) {
 trashcan.addEventListener("click", function(e) {
     let amount = e.target
     let grab = document.querySelector('.card')
+
+/*
+    for (let j = 0; j < envy.length; j++) {
+        if(Number(amount.value) === envy[j].time) {
+            console.log(envy[j].time)
+            alert('found')
+
+        }
+    }
+*/
+
+let trytwo = localStorage.getItem('array')
+console.log(trytwo)
+let trythree = JSON.parse(trytwo)
+console.log(trythree)
+let tryfour = trythree[0]
+console.log(tryfour.time)
+for(let j = 0; j < trythree.length; j++) {
+    if((Number(amount.value) === trythree[j].time))
+
+
+
+    
+    trythree.splice(j, 1)
+    localStorage.setItem('array', JSON.stringify(trythree))
+    console.log(trythree)
+    amount.closest('.card').remove()
+
+}
+
+
+
     for (let i = 0; i < myTasks.length; i++) {
-        if(Number(amount.value) === myTasks[i].time) {
+        if((Number(amount.value) === myTasks[i].time)) {
+            console.log(amount.value)
+            console.log(myTasks)
+            console.log(envy)
+   
             amount.closest('.card').remove()
+  
+     
+
+            
+          
         }
     }
 })
@@ -518,8 +560,8 @@ function pop() {
 
 
 
-  function NewTask(title, description, date, importance) {
-        this.time = Date.now();
+  function NewTask(time, title, description, date, importance) {
+        this.time = time,
         this.title = title;
         this.description = description;
         this.date = date;
@@ -533,6 +575,7 @@ function pop() {
 
     const addTask = (e) => {
         let anotherTask = new NewTask(
+            Date.now(),
             document.querySelector('#task').value,
             document.querySelector('#description').value,
             document.querySelector('#date').value,
@@ -558,6 +601,17 @@ function pop() {
     fifthInput.addEventListener("click", function() {
 
         localStorage.setItem('array', JSON.stringify(local))
+        let trytwo = localStorage.getItem('array')
+        console.log(trytwo)
+        let trythree = JSON.parse(trytwo)
+        console.log(trythree)
+        let tryfour = trythree[0]
+        console.log(tryfour.time)
+        for(let i = 0; i < trythree.length; i++) {
+            console.log(trythree[i].time)
+        }
+
+
         addButton()
         let testtest = document.body.querySelector('.formbutton')
         testtest.addEventListener("click", pop)
