@@ -13,16 +13,18 @@
 }
 
 .sidebar {
-    flex-basis: 25%;
-    flex-shrink: 2;
+    flex-basis: 20%;
+    flex-shrink: 0;
     border-right: 1px solid black;
+    padding: 12px;
 }
 
 .mainbody {
-    flex-basis: 75%;
+    flex-basis: 80%;
     flex-shrink: 1;
+    overflow-y: scroll;
+    overflow-x: hidden;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     padding: 100px;
     gap: 8px;
@@ -39,14 +41,69 @@
 .card {
     width: 100%;
     border: 1px solid black;
-    height: 50px;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.cardcontainerone {
+    flex-grow: 1;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
 
+.cardcontainertwo {
+    flex-grow: 1;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.containerboxone {
+    overflow-y: scroll;
+    height: 40px;
+    max-width: 40%;
+    overflow: scroll;
+    flex-grow: 2;
+}
+
+.containerboxone,
+.containerboxtwo
+{
+
+}
+.containerboxtwo {
+    display: flex;
+    justify-content: flex-end;
+    flex-basis: 20%;
+}
+
+.firstsection,
+.thirdsection {
+    flex-basis: 20%;
+
+    display: flex;
+}
+
+
+.thirdsection {
+    justify-content: flex-end;
+    gap: 6px;
+    align-items: center;
+}
+.secondsection {
+ flex-basis: 40%;
+    justify-content: space-between;
+    display: flex;
+}
+
+
 .trashicon {
-    pointer-events: none;
+
 }
 .card {
   
@@ -79,6 +136,16 @@
     text-decoration: none;
 }
 
+.formbuttonicontwo {
+    height: 30px;
+    width: 30px;
+    background-color: none;
+    border: none;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+}
+
 .formbutton {
     align-self: flex-start;
     all: unset;
@@ -96,11 +163,23 @@
 }
 
 .sidebarcontainer {
-    height: 30%;
+    height: 20%;
     display: flex;
     flex-direction: column;
     gap: 24px;
     justify-content: center;
+
+}
+.sidebarcontainertwo {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: flex-start;
+
+
+    text-align: left;
+    
 }
 
 
@@ -120,6 +199,208 @@
     transition-timing-function: ease-in-out;
   }
   .formbutton:hover .formbuttonicon, .formbutton:focus .formbuttonicon, .formbutton:active .formbuttonicon {
-    -webkit-transform: rotate(90deg);
-    transform: rotate(90deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
   }
+
+  .formbuttontwo {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    all: unset;
+  }
+  .formbuttontwo .formbuttonicontwo {
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-timing-function: ease-in-out;
+    transition-timing-function: ease-in-out;
+  }
+  .formbuttontwo:hover .formbuttonicontwo, .formbuttontwo:focus .formbuttonicontwo, .formbuttontwo:active .formbuttonicontwo {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+
+  .firstcontainer,
+  .secondcontainer {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+  }
+  .firstform {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .popup {
+    display: flex;
+    padding: 12px;
+  }
+
+  .secondoverallcontainer {
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+
+  .overallcontainer {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 2;
+    gap: 8px;
+ 
+  }
+
+  .tasksubmitbutton {
+  all: unset;
+  border: none;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  }
+
+  .submiticon {
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+  }
+
+  .trashbutton,
+  .dropdownbutton {
+    all: unset;
+    border: none;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+
+  }
+
+  .trashicon,
+  .dropdownicon {
+    height: 20px;
+    width: 20px;
+    pointer-events: none;
+  }
+
+  
+
+  .projectbutton {
+    all: unset;
+    cursor: pointer;
+    padding-bottom: 12px;
+    font-weight: bolder;
+  }
+
+
+
+  .projectbutton {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    overflow: hidden;
+  }
+  .projectbutton:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+    background: black;
+    height: 4px;
+    -webkit-transition-property: right;
+    transition-property: right;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+  }
+  .projectbutton:hover:before, .projectbutton:focus:before, .projectbutton:active:before {
+    right: 0;
+  }
+
+  .projectbutton {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+  }
+  .projectbutton:hover, .projectbutton:focus, .projectbutton:active {
+    -webkit-transform: scale(1.02);
+    transform: scale(1.02);
+  }
+
+  .form {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    justify-content: space-between;
+  }
+
+  .sidebarformcontainer,
+  .formbox {
+
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .form input[type=text] {
+    font-size: 20px;
+    border: none;
+    color: black;
+    width: 175px;
+  }
+
+  .sidebarformbutton {
+    all:unset;
+    cursor: pointer;
+  }
+
+  .formbuttonicon {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+  }
+  .formbuttonicon:hover, .formbuttonicon:focus, .formbuttonicon:active {
+    -webkit-transform: translateX(8px);
+    transform: translateX(8px);
+  }
+
+  .formbuttonicontwo {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+  }
+  .formbuttonicontwo:hover, .formbuttonicontwo:focus, .formbuttonicontwo:active {
+    -webkit-transform: translateX(8px);
+    transform: translateX(8px);
+  }
+
+ 
